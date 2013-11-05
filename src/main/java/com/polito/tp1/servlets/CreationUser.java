@@ -9,13 +9,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.polito.tp1.beans.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CreationUser.
+ */
 public class CreationUser extends HttpServlet {
 
+    /** The Constant serialVersionUID. */
     private static final long   serialVersionUID = 1L;
+
+    /** The Constant VIEW. */
     private static final String VIEW             = "/showUser.jsp";
+
+    /** The Constant SUCCESS_MESSAGE. */
     private static final String SUCCESS_MESSAGE  = "User created with succss";
+
+    /** The Constant FAILURE_MESSAGE. */
     private static final String FAILURE_MESSAGE  = "Missing some field. <a href = \"createUser.jsp\" Click here </a> to access to access to the form";
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest
+     * , javax.servlet.http.HttpServletResponse)
+     */
     @Override
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException,
             IOException {
@@ -44,6 +62,17 @@ public class CreationUser extends HttpServlet {
         this.getServletContext().getRequestDispatcher( VIEW ).forward( request, response );
     }
 
+    /**
+     * Check parameters.
+     * 
+     * @param firstName
+     *            the first name
+     * @param address
+     *            the address
+     * @param telephone
+     *            the telephone
+     * @return the string
+     */
     private String checkParameters( String firstName, String address, String telephone ) {
         try {
             if ( firstName.trim().isEmpty() || address.trim().isEmpty() || telephone.trim().isEmpty() )
